@@ -1,7 +1,0 @@
-builtins_platform=JS
-unique_name=org.jetbrains.kotlinx\:atomicfu
-compiler_version=1.4.10
-depends=kotlin
-abi_version=1.4.1
-metadata_version=1.4.0
-ir_version=1.0.0

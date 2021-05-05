@@ -1,7 +1,0 @@
-builtins_platform=JS
-unique_name=org.jetbrains.kotlinx\:kotlinx-collections-immutable
-ir_version=1.0.0
-compiler_version=1.4.30
-depends=kotlin
-abi_version=1.4.2
-metadata_version=1.4.1
