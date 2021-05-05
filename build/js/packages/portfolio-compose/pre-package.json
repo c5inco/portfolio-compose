@@ -1,0 +1,21 @@
+{
+  "name": "portfolio-compose",
+  "version": "1.0.0-SNAPSHOT",
+  "main": "kotlin/portfolio-compose.js",
+  "devDependencies": {
+    "webpack": "4.44.1",
+    "webpack-cli": "3.3.12",
+    "source-map-loader": "1.1.0",
+    "webpack-dev-server": "3.11.0",
+    "dukat": "0.5.8-rc.3"
+  },
+  "dependencies": {
+    "kotlin": "file:/Users/c5inco/Src/portfolio-compose/build/js/packages_imported/kotlin/1.4.32",
+    "androidx-web": "file:/Users/c5inco/Src/portfolio-compose/build/js/packages_imported/androidx-web/0.0.0-web-dev-11",
+    "kotlin-test-js-runner": "file:/Users/c5inco/Src/portfolio-compose/build/js/packages_imported/kotlin-test-js-runner/1.4.32",
+    "kotlin-test": "file:/Users/c5inco/Src/portfolio-compose/build/js/packages_imported/kotlin-test/1.4.32"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

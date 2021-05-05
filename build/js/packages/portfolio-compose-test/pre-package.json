@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-compose-test",
+  "version": "1.0.0-SNAPSHOT",
+  "main": "kotlin/portfolio-compose-test.js",
+  "devDependencies": {},
+  "dependencies": {
+    "portfolio-compose": "1.0.0-SNAPSHOT",
+    "kotlin": "file:/Users/c5inco/Src/portfolio-compose/build/js/packages_imported/kotlin/1.4.32",
+    "androidx-web": "file:/Users/c5inco/Src/portfolio-compose/build/js/packages_imported/androidx-web/0.0.0-web-dev-11",
+    "kotlin-test-js-runner": "file:/Users/c5inco/Src/portfolio-compose/build/js/packages_imported/kotlin-test-js-runner/1.4.32",
+    "kotlin-test": "file:/Users/c5inco/Src/portfolio-compose/build/js/packages_imported/kotlin-test/1.4.32"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

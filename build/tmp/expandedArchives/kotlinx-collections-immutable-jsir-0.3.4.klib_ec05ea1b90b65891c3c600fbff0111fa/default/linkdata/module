@@ -1,0 +1,2 @@
+
+5<org.jetbrains.kotlinx:kotlinx-collections-immutable>:kotlinx.collections.immutable:&kotlinx.collections.immutable.adapters:;kotlinx.collections.immutable.implementations.immutableList::kotlinx.collections.immutable.implementations.immutableMap::kotlinx.collections.immutable.implementations.immutableSet:Bkotlinx.collections.immutable.implementations.persistentOrderedMap:Bkotlinx.collections.immutable.implementations.persistentOrderedSet:&kotlinx.collections.immutable.internal
