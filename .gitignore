@@ -21,3 +21,6 @@ gradle.xml
 # General
 .DS_Store
 .externalNativeBuild
+
+# NPM build
+dist/

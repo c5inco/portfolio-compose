@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-compose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./gradlew jsBrowserProductionRun",
+    "distribute": "./gradlew jsBrowserDistribution && npm run cleanupDist && cp -r build/distributions/* dist/",
+    "cleanupDist": "rm -rf dist && mkdir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c5inco/portfolio-compose.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/c5inco/portfolio-compose/issues"
+  },
+  "homepage": "https://github.com/c5inco/portfolio-compose#readme"
+}
