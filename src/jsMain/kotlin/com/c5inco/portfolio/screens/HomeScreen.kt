@@ -1,6 +1,7 @@
 package com.c5inco.portfolio.screens
 
 import androidx.compose.runtime.Composable
+import androidx.compose.web.css.Style
 import androidx.compose.web.css.value
 import androidx.compose.web.elements.*
 import com.c5inco.portfolio.data.ProjectsRepository
@@ -10,6 +11,8 @@ import com.c5inco.portfolio.style.HomeStylesheet
 
 @Composable
 fun HomeScreen() {
+    Style(HomeStylesheet)
+
     Div {
         Div {
             renderHeader()
