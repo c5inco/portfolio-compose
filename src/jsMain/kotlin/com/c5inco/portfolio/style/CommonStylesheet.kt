@@ -1,6 +1,6 @@
+package com.c5inco.portfolio.style
+
 import androidx.compose.web.css.*
-import androidx.compose.web.css.selectors.type
-import org.w3c.dom.Screen
 
 object CommonStylesheet : StyleSheet() {
     init {

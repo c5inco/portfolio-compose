@@ -1,4 +1,5 @@
-import androidx.compose.web.attributes.DirType
+package com.c5inco.portfolio.style
+
 import androidx.compose.web.css.*
 import androidx.compose.web.css.selectors.hover
 import androidx.compose.web.css.selectors.plus

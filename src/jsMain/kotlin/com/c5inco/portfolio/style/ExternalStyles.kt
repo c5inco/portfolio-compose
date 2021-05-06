@@ -1,4 +1,6 @@
-import androidx.compose.web.css.*
+package com.c5inco.portfolio.style
+
+import androidx.compose.web.css.StyleSheet
 
 object FoundationStylesheet : StyleSheet() {
     val row = "row"

@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.compose") version "0.0.0-web-dev-11"
 }
 
-group = "org.example"
+group = "com.c5inco.portfolio"
 version = "1.0-SNAPSHOT"
 
 repositories {

@@ -1,5 +1,6 @@
-import androidx.compose.web.css.CSSBuilder
-import androidx.compose.web.css.StyleSheet
+package com.c5inco.portfolio.data
+
+import com.c5inco.portfolio.style.HomeStylesheet
 
 data class ProjectData(
     val name: String,
