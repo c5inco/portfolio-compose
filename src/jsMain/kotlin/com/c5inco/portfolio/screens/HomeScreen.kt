@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.web.css.Style
 import androidx.compose.web.css.value
 import androidx.compose.web.elements.*
+import com.c5inco.portfolio.data.ProjectData
 import com.c5inco.portfolio.data.ProjectsRepository
 import com.c5inco.portfolio.style.AnimateCssStyleSheet
 import com.c5inco.portfolio.style.FoundationStylesheet
@@ -105,15 +106,15 @@ private fun renderProjects() {
         )
     }
     ) {
-        ProjectsRepository.forEach {
+        ProjectsRepository.forEach { (key, project) ->
             Div(attrs = { classes(FoundationStylesheet.column, HomeStylesheet.col) }) {
                 A(
-                    href = "/projects/${it.name}",
+                    href = "/projects/${key}",
                     attrs = { classes(HomeStylesheet.card) }
                 ) {
-                    Div(attrs = { classes(HomeStylesheet.preview, it.styleRef) }) { }
+                    Div(attrs = { classes(HomeStylesheet.preview, project.styleRef) }) { }
                     H4(attrs = { classes(HomeStylesheet.caption) }) {
-                        Text("${it.description}")
+                        Text("${project.description}")
                     }
                 }
             }

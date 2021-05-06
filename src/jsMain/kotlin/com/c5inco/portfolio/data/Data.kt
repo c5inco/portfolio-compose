@@ -9,18 +9,18 @@ data class ProjectData(
     val articleData: List<Any> = listOf()
 )
 
-val ProjectsRepository = listOf(
-    ProjectData(
+val ProjectsRepository = hashMapOf(
+    "vscode" to ProjectData(
         "vscode",
         "Visual Studio Code",
         HomeStylesheet.vscode
     ),
-    ProjectData(
+    "cortana" to ProjectData(
         "cortana",
         "Cortana Actions",
         HomeStylesheet.cortana
     ),
-    ProjectData(
+    "slackbots" to ProjectData(
         name = "slackbots",
         description = "Slack Bots",
         articleData = listOf(
@@ -125,7 +125,8 @@ val ProjectsRepository = listOf(
                                 content = listOf(
                                     ArticleBold("Gossip Bot"),
                                     ArticleSpan(" - bot that loved to hear gossip but only would tell you random tidbits ("),
-                                    ArticleLink(content = "code on GitHub", url = "https://github.com/c5inco/GossipBot")
+                                    ArticleLink(content = "code on GitHub", url = "https://github.com/c5inco/GossipBot"),
+                                    ArticleSpan(")")
                                 )
                             ),
                             ArticleParagraph(
@@ -231,17 +232,17 @@ val ProjectsRepository = listOf(
         ),
         styleRef = HomeStylesheet.slackbots
     ),
-    ProjectData(
+    "devcanvs" to ProjectData(
         "devcanvas",
         "Developer Canvas",
         HomeStylesheet.devcanvas
     ),
-    ProjectData(
+    "touchdev" to ProjectData(
         "touchdev",
         "Touch-First Dev Tools",
         HomeStylesheet.touchdev
     ),
-    ProjectData(
+    "magicalmusic" to ProjectData(
         name = "magicalmusic",
         description = "Magical Music",
         articleData = listOf(
@@ -285,7 +286,7 @@ val ProjectsRepository = listOf(
         ),
         styleRef = HomeStylesheet.magicalMusic
     ),
-    ProjectData(
+    "hololens" to ProjectData(
         name = "hololens",
         description = "Microsoft Hololens",
         articleData = listOf(
@@ -311,15 +312,83 @@ val ProjectsRepository = listOf(
         ),
         styleRef = HomeStylesheet.hololens
     ),
-    ProjectData(
-        "islandwood",
-        "Windows Bridge for iOS",
-        HomeStylesheet.islandwood
+    "islandwood" to ProjectData(
+        name = "islandwood",
+        description = "Windows Bridge for iOS",
+        articleData = listOf(
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("The "),
+                    ArticleBold("Windows Bridge for iOS"),
+                    ArticleSpan(" is a Microsoft open-source project that allows developers to take their existing iOS apps and bridge it over to the Universal Windows Platform, in order to quickly get started building apps for Windows 10 devices.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/islandwood/islandwood-prod-header.png",
+                        caption = "Landing page on the Windows Dev Center"
+                    )
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("Part of the initial process of bridging over your app is understanding how much of your iOS code is supported and how much of it you will have to rewrite or create workarounds. Potential developers can quickly get a report of how much work is entailed through the App Analysis tool.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/islandwood/analysis-prod.png",
+                        caption = "App Analysis tool on the Windows Dev Center"
+                    )
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("I was responsible for the design and workflow of the tool, as well as for the documentation pages that enumerated the level of support for existing iOS APIs.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/islandwood/results1.png",
+                        caption = "Results visualization exploration A"
+                    ),
+                    ArticleImage(
+                        src = "/img/islandwood/results2.png",
+                        caption = "Results visualization exploration B"
+                    ),
+                    ArticleImage(
+                        src = "/img/islandwood/results3.png",
+                        caption = "Results visualization exploration C"
+                    ),
+                    ArticleImage(
+                        src = "/img/islandwood/results4.png",
+                        caption = "Results visualization exploration D"
+                    ),
+                    ArticleImage(
+                        src = "/img/islandwood/results5.png",
+                        caption = "Results visualization exploration E"
+                    ),
+                ),
+                showAsCarousel = true
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/islandwood/docs.png",
+                        caption = "Design exploration on API documentation pages"
+                    )
+                )
+            ),
+        ),
+        styleRef = HomeStylesheet.islandwood
     ),
-    ProjectData(
-        "funsies",
-        "For Funsies",
-        HomeStylesheet.funsies
+    "funsies" to ProjectData(
+        name = "funsies",
+        description = "For Funsies",
+        styleRef = HomeStylesheet.funsies
     ),
 )
 
@@ -346,6 +415,7 @@ data class ArticleUnorderedList(
 
 data class ArticleImages(
     val images: List<ArticleImage>,
+    val showAsCarousel: Boolean = false
 )
 
 data class ArticleImage(
