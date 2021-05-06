@@ -14,8 +14,8 @@ fun main() {
         Style(AnimateCssStyleSheet)
         Style(CommonStylesheet)
 
-        HomeScreen()
-        // ProjectsScreen()
+        // HomeScreen()
+        ProjectsScreen()
     }
 }
 

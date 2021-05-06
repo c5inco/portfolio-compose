@@ -65,7 +65,11 @@ object ProjectsStylesheet : StyleSheet() {
     }
 
     val slideCaption by style {
-        marginTop(0.px)
+        marginTop(0.5.rem)
+        property("padding", value("0.5rem 1rem"))
+        fontSize(0.7.rem)
+        opacity(0.7f)
+        property("text-align", value("center"))
 
         media(minWidth(40.em)) {
             self style {

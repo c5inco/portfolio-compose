@@ -18,7 +18,7 @@ val blockRowStyles = listOf(
 
 @Composable
 fun ProjectsScreen(
-    data: ProjectData = ProjectsRepository[5]
+    data: ProjectData = ProjectsRepository[2]
 ) {
     Style(ProjectsStylesheet)
 
@@ -32,15 +32,14 @@ fun ProjectsScreen(
                 H2(attrs = { classes(ProjectsStylesheet.projectName)} ) {
                     Text("$description")
                 }
-
-                if (articleData.isNotEmpty()) {
-                    articleData.forEach {
-                        if (it is ArticleParagraph) {
-                            renderParagraph(it.content)
-                        }
-                        if (it is ArticleImages) {
-                            if (it.images.isNotEmpty()) renderImages(it.images)
-                        }
+            }
+            if (articleData.isNotEmpty()) {
+                articleData.forEach {
+                    if (it is ArticleParagraph) {
+                        renderParagraph(it.content)
+                    }
+                    if (it is ArticleImages) {
+                        if (it.images.isNotEmpty()) renderImages(it.images)
                     }
                 }
             }
@@ -58,7 +57,9 @@ fun ProjectsScreen(
 @Composable
 private fun renderParagraph(content: String) {
     Div(attrs = { classes(*blockRowStyles.toTypedArray()) }) {
-        Text("$content")
+        P {
+            Text("$content")
+        }
     }
 }
 
@@ -108,6 +109,7 @@ private fun renderImages(images: List<ArticleImage>) {
             FoundationStylesheet.row,
             FoundationStylesheet.column,
             FoundationStylesheet.smallCentered,
+            FoundationStylesheet.small12,
             FoundationStylesheet.medium11
         )}) {
             renderImageElement(image)
@@ -126,11 +128,15 @@ private fun renderImageElement(image: ArticleImage) {
         Img(
             src = src,
             attrs = {
+                classes(ProjectsStylesheet.maskImage)
                 attr("srcSet", "${tmp[0]}@2x.${tmp[1]} 2x")
             },
         )
     } else {
-        Img(src = src)
+        Img(
+            src = src,
+            attrs = { classes(ProjectsStylesheet.fullImage) },
+        )
     }
 }
 
