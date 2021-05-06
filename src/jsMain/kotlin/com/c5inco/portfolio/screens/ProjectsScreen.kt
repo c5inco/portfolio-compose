@@ -3,6 +3,8 @@ package com.c5inco.portfolio.screens
 import androidx.compose.runtime.Composable
 import androidx.compose.web.css.Style
 import androidx.compose.web.elements.*
+import com.c5inco.portfolio.components.Caption
+import com.c5inco.portfolio.components.Carousel
 import com.c5inco.portfolio.data.*
 import com.c5inco.portfolio.style.FoundationStylesheet
 import com.c5inco.portfolio.style.ProjectsStylesheet
@@ -39,7 +41,13 @@ fun ProjectsScreen(
                         if (it.content.isNotEmpty()) renderParagraph(it.content)
                     }
                     if (it is ArticleImages) {
-                        if (it.images.isNotEmpty()) renderImages(it.images)
+                        if (it.images.isNotEmpty()) {
+                            if (it.showAsCarousel) {
+                                renderCarousel(it.images)
+                            } else {
+                                renderImages(it.images)
+                            }
+                        }
                     }
                 }
             }
@@ -137,7 +145,7 @@ private fun renderImages(images: List<ArticleImage>) {
                 images.forEach {
                     Div(attrs = { classes(FoundationStylesheet.column) }) {
                         renderImageElement(it)
-                        renderCaptionElement(it.caption)
+                        Caption(it.caption)
                     }
                 }
             }
@@ -153,7 +161,7 @@ private fun renderImages(images: List<ArticleImage>) {
             FoundationStylesheet.medium11
         )}) {
             renderImageElement(image)
-            renderCaptionElement(image.caption)
+            Caption(image.caption)
         }
     }
 }
@@ -181,8 +189,14 @@ private fun renderImageElement(image: ArticleImage) {
 }
 
 @Composable
-private fun renderCaptionElement(caption: String) {
-    Div(attrs = { classes(ProjectsStylesheet.slideCaption) }) {
-        Text("$caption")
+private fun renderCarousel(images: List<ArticleImage>) {
+    Div(attrs = { classes(
+        FoundationStylesheet.row,
+        FoundationStylesheet.column,
+        FoundationStylesheet.smallCentered,
+        FoundationStylesheet.small12,
+        FoundationStylesheet.medium11,
+    )}) {
+        Carousel(images)
     }
 }

@@ -54,41 +54,6 @@ object ProjectsStylesheet : StyleSheet() {
         marginTop(0.5.rem)
     }
 
-    val carousel by style {
-        property("margin", value("0.5rem 0"))
-
-        media(minWidth(40.em)) {
-            self style {
-                property("margin-bottom", value(1.rem))
-            }
-        }
-    }
-
-    val slideCaption by style {
-        marginTop(0.5.rem)
-        property("padding", value("0.5rem 1rem"))
-        fontSize(0.7.rem)
-        opacity(0.7f)
-        property("text-align", value("center"))
-
-        media(minWidth(40.em)) {
-            self style {
-                fontSize(0.9.rem)
-                property("max-width", value(80.percent))
-                property("margin", value("0.5rem auto 0"))
-            }
-        }
-    }
-
-    val slide by style {
-        position(Position.Relative)
-        property("text-align", value("center"))
-    }
-
-    val slickDots by style {
-        bottom(50.px)
-    }
-
     val projectNav by style {
         property("margin", value("4rem 0"))
     }

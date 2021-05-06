@@ -2,7 +2,7 @@ package com.c5inco.portfolio.style
 
 import androidx.compose.web.css.*
 
-object CommonStylesheet : StyleSheet() {
+object AppStylesheet : StyleSheet() {
     init {
         "body" style {
             backgroundColor(Color("#f1f1ee"))
