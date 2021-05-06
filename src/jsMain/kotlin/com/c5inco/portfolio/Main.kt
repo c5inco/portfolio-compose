@@ -2,6 +2,7 @@ package com.c5inco.portfolio
 
 import androidx.compose.web.css.Style
 import androidx.compose.web.renderComposable
+import com.c5inco.portfolio.screens.HomeScreen
 import com.c5inco.portfolio.screens.ProjectsScreen
 import com.c5inco.portfolio.style.AnimateCssStyleSheet
 import com.c5inco.portfolio.style.CommonStylesheet
@@ -13,8 +14,8 @@ fun main() {
         Style(AnimateCssStyleSheet)
         Style(CommonStylesheet)
 
-        //HomeScreen()
-        ProjectsScreen()
+        HomeScreen()
+        // ProjectsScreen()
     }
 }
 
