@@ -36,7 +36,7 @@ fun ProjectsScreen(
             if (articleData.isNotEmpty()) {
                 articleData.forEach {
                     if (it is ArticleParagraph) {
-                        renderParagraph(it.content)
+                        if (it.content.isNotEmpty()) renderParagraph(it.content)
                     }
                     if (it is ArticleImages) {
                         if (it.images.isNotEmpty()) renderImages(it.images)
@@ -55,10 +55,50 @@ fun ProjectsScreen(
 }
 
 @Composable
-private fun renderParagraph(content: String) {
+private fun renderParagraph(content: List<Any>) {
     Div(attrs = { classes(*blockRowStyles.toTypedArray()) }) {
         P {
-            Text("$content")
+            content.forEach {
+                when (it) {
+                    is ArticleBold -> {
+                        B { Text(it.content) }
+                    }
+                    is ArticleLink -> {
+                        A(href = it.url) { Text(it.content) }
+                    }
+                    is ArticleUnorderedList -> {
+                        Ul {
+                            it.items.forEach {
+                                Li {
+                                    renderListItem(it.content)
+                                }
+                            }
+                        }
+                    }
+                    else -> {
+                        val span = it as ArticleSpan
+                        Text(it.content)
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun renderListItem(content: List<Any>) {
+    content.forEach {
+        when (it) {
+            is ArticleBold -> {
+                B { Text(it.content) }
+            }
+            is ArticleLink -> {
+                A(href = it.url) { Text(it.content) }
+            }
+            else -> {
+                val span = it as ArticleSpan
+                Text(it.content)
+            }
         }
     }
 }
