@@ -11,14 +11,14 @@ data class ProjectData(
 
 val ProjectsRepository = hashMapOf(
     "vscode" to ProjectData(
-        "vscode",
-        "Visual Studio Code",
-        HomeStylesheet.vscode
+        name = "vscode",
+        description = "Visual Studio Code",
+        styleRef = HomeStylesheet.vscode
     ),
     "cortana" to ProjectData(
-        "cortana",
-        "Cortana Actions",
-        HomeStylesheet.cortana
+        name = "cortana",
+        description = "Cortana Actions",
+        styleRef = HomeStylesheet.cortana
     ),
     "slackbots" to ProjectData(
         name = "slackbots",
@@ -334,9 +334,112 @@ val ProjectsRepository = hashMapOf(
         styleRef = HomeStylesheet.devcanvas
     ),
     "touchdev" to ProjectData(
-        "touchdev",
-        "Touch-First Dev Tools",
-        HomeStylesheet.touchdev
+        name = "touchdev",
+        description = "Touch-First Dev Tools",
+        articleData = listOf(
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("One of my first gigs on the Visual Studio design team was creating interactive prototypes to help "),
+                    ArticleBold("envision and demonstrate the potential for touch-first developer tools"),
+                    ArticleSpan(".")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/touchdev/vstouch1.png",
+                        caption = "Wireframe concepts - Start by opening a recent project"
+                    ),
+                    ArticleImage(
+                        src = "/img/touchdev/vstouch2.png",
+                        caption = "Now you can select a recent file from the workstreams"
+                    ),
+                    ArticleImage(
+                        src = "/img/touchdev/vstouch3.png",
+                        caption = "You can quickly switch between files during reading"
+                    ),
+                    ArticleImage(
+                        src = "/img/touchdev/vstouch4.png",
+                        caption = "Touch affords an easy way to navigate quickly"
+                    ),
+                    ArticleImage(
+                        src = "/img/touchdev/vstouch5.png",
+                        caption = "Conversations can easily be started, in situ and in-context"
+                    ),
+                ),
+                showAsCarousel = true
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleBold("VS Reader"),
+                    ArticleSpan(" - code review app that displayed code to look and feel more like a magazine")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/touchdev/vsreader-capture.png",
+                        caption = "The developer would start with recent projects"
+                    ),
+                    ArticleImage(
+                        src = "/img/touchdev/vsreader1.png",
+                        caption = "We experiemented with code in a magazine layout and style, to enhance code comprehension"
+                    ),
+                    ArticleImage(
+                        src = "/img/touchdev/vsreader2.png",
+                        caption = "Peers could also comment as well with text and speech"
+                    ),
+                ),
+                showAsCarousel = true
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleBold("Gesture Library"),
+                    ArticleSpan(" - Visual Studio extension that allowed developers to execute commands by drawing gestures on the screen")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/touchdev/gestures-capture.png",
+                        caption = "The developer could use touch gestures to execute common commands"
+                    ),
+                ),
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleBold("Command Center"),
+                    ArticleSpan(" - app that offloaded 80% of the commands in Visual Studio, to be used on a slate as a companion to Visual Studio on the desktop")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/touchdev/cc1.png",
+                        caption = "Sketch of the companion Command Center app open with Visual Studio"
+                    ),
+                ),
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/touchdev/cc2.png",
+                        caption = "Commands were laid out in a touch-optimized grid on a companion tablet"
+                    ),
+                ),
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("The prototypes were created as Windows 8 apps, using XAML and C#. The other major design goal was to push the status quo towards the direction of providing a \"constellation\" of fit-to-purpose tools instead of a single, monolithic product.")
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("Overall they were well-received and sparked a lot of conversation within the organization. Much of insights were carried over into the planning efforts for Visual Studio 2012 and beyond.")
+                )
+            ),
+        ),
+        styleRef = HomeStylesheet.touchdev
     ),
     "magicalmusic" to ProjectData(
         name = "magicalmusic",

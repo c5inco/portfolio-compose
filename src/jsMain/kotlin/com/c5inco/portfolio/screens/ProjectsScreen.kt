@@ -19,7 +19,7 @@ val blockRowStyles = listOf(
 
 @Composable
 fun ProjectsScreen(
-    data: ProjectData = ProjectsRepository["devcanvas"]!!
+    data: ProjectData = ProjectsRepository["touchdev"]!!
 ) {
     Style(ProjectsStylesheet)
 
