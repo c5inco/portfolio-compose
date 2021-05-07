@@ -19,7 +19,7 @@ val blockRowStyles = listOf(
 
 @Composable
 fun ProjectsScreen(
-    data: ProjectData = ProjectsRepository["funsies"]!!
+    data: ProjectData = ProjectsRepository["vscode"]!!
 ) {
     Style(ProjectsStylesheet)
 
@@ -165,7 +165,7 @@ private fun renderImages(images: List<ArticleImage>) {
             )}) {
                 images.forEach {
                     Div(attrs = { classes(FoundationStylesheet.column) }) {
-                        renderImageElement(it)
+                        renderImageElement(it, ProjectsStylesheet.maskImage)
                         Caption(it.caption)
                     }
                 }
@@ -188,7 +188,10 @@ private fun renderImages(images: List<ArticleImage>) {
 }
 
 @Composable
-private fun renderImageElement(image: ArticleImage) {
+private fun renderImageElement(
+    image: ArticleImage,
+    imageClass: String = ProjectsStylesheet.fullImage
+) {
     val (src, _, multiplier) = image
 
     if (multiplier == 2) {
@@ -197,14 +200,14 @@ private fun renderImageElement(image: ArticleImage) {
         Img(
             src = src,
             attrs = {
-                classes(ProjectsStylesheet.maskImage)
+                classes(imageClass)
                 attr("srcSet", "${tmp[0]}@2x.${tmp[1]} 2x")
             },
         )
     } else {
         Img(
             src = src,
-            attrs = { classes(ProjectsStylesheet.fullImage) },
+            attrs = { classes(imageClass) },
         )
     }
 }
