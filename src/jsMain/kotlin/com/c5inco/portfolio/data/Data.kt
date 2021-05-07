@@ -327,7 +327,248 @@ val ProjectsRepository = hashMapOf(
         name = "cortana",
         description = "Cortana Actions",
         articleData = listOf(
-
+            ArticleParagraph(
+                content = listOf(
+                    ArticleBold("Cortana Actions"),
+                    ArticleSpan(" are extensible, contextual deep-links that appear as part of the Cortana experience on Windows 10 devices. App developers can register these actions through the online developer portal, to surface based on registered keywords, phrases and contextual cues that are extracted during a user's Cortana request.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/cards.png",
+                        caption = "Examples of Cortana cards with actions"
+                    )
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("For example, if a user asks Cortana to \"get a taxi\", services such as Uber can provide deep-links to their app to help complete the request. Similarly, if Cortana notices an approaching appointment, it can suggest to \"get a taxi\" at the appropriate time - at that point, the same registered Uber deep-link would appear.")
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("The developer preview was released at the //build 2016 conference, highlighted in the opening keynote.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/cortana-keynote.png",
+                        caption = "Keynote breakdown of Microsoft's new Conversation-as-a-Platform thinking"
+                    )
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("From the consumer's perspective, they shouldn't even need be aware of Cortana Actions as a concept - they just speak to Cortana naturally, and she attempts to fulfill the request. On the flip side, the developers that register these deep-links need to understand how Cortana breaks down queries and based on that knowledge how to reliably surface their apps/services at the best time.")
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("As a design team, creating a portal experience was pretty familiar and straightforward. The real challenge we faced was how to help users reliably understand and develop for the emerging domain of natural language processing and artificial intelligence.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/luis-breakdown.png",
+                        caption = "Sketches of the concept and mental models"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/order-pizza1.png",
+                        caption = "Concepts of a speech project template"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/order-pizza2.png",
+                        caption = "Further concepts of a speech project template"
+                    ),
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("Up until this point, the inner workings of Cortana and many other digital assistants (Siri, Google, etc), were very much a black box of processing magic. This sort of hand-waving wouldn't be acceptable for developers, since surfacing deep-links in Cortana was akin to digital advertising in that companies needed to have strict control over when and where they were exposed.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/contoso-cafe-1pa.png",
+                        caption = "Flow chart of Cortana Action data being passed to an app"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/contoso-cafe-3pa.png",
+                        caption = "Flow chart of custom Cortana action data being passed to an app"
+                    ),
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("We ourselves were new to the domain, so we had to spend about a couple weeks in the beginning getting ramped up before we could even brainstorm or sketch. Note: the learning never really ended because the processing technology itself is a moving target, continually advancing, and depending on who you talk to will differ from expert to expert.")
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("On my end, the key part of my design process was \"learning-by-making\" - I decided that the best way to learn was to build a natural language solution myself. The easiest thing I found to start with were custom Alexa Skills for the Amazon Echo. I was fortunate that our team had an Echo on-hand and that the development process was pretty straightforward and free to get started.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/alexa-capture.png",
+                        caption = "Walking through building an Alexa Skill"
+                    ),
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("I ended up creating several Alexa Skills, from one that was able to tell me what college my colleagues attended, to one that knew whether or not my manager was in a meeting. It was very helpful to see and understand how other platforms communicated the domain concepts, the overall taxonomy and how to expose them to the developer. These hands-on experiences greatly accelerated our ramp up and ultimately made our designs more informed and approachable. I also communicated my learnings to the engineering organization to help them understand how our competitors were conceptualizing the complex domain and how we measured up.")
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("I was one of four designers on the Cortana Developer Experiences product team. My primary responsibilities were providing the design and front-end implementation for the web-based developer portal, in collaboration with designers, content authors and developers across Windows, Bing and Microsoft Research.")
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("My initial contributions were towards the landing page of the portal. On this page, developers would be introduced to the Cortana developer platform, concepts, taxonomy and where to get started.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/cortana-prod-header.png",
+                        caption = "Landing page for //build 2016 launch"
+                    ),
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("There were several sections on the landing pages that went through many iterations. The order of them also went through just as much discussion since it was very important that users knew what to do next and where to find more information. I decided to use a card sorting exercise with the team to quickly and efficiently decide how things should be sorted. I printed each section and its variations on card stock, cut them out and then let folks sort them in the order they liked. It was a fun exercise and helped us move forward much faster.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/cortana-hero1.png",
+                        caption = "Hero exploration A"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/cortana-hero2.png",
+                        caption = "Hero exploration B"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/cortana-hero3.png",
+                        caption = "Hero exploration C"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/cortana-hero4.png",
+                        caption = "Hero exploration D"
+                    ),
+                ),
+                showAsCarousel = true
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/how-section1.png",
+                        caption = "How explanation A"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/how-section2.png",
+                        caption = "How explanation B"
+                    ),
+                ),
+                showAsCarousel = true
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("Afterwards, the rest of my contributions were towards designing and implementing the portal workflows to get users onboarded and registering Actions. This took the most time because we were continuously changing the taxonomy of the inner workings of Cortana language processing. On top of that, other Microsoft teams had their own natural language solutions that conceptually conflicted with ours. This required additional negotiation and alignment with folks cross-company to ensure we communicated a unified model and taxonomy to all Microsoft users.")
+                )
+            ),
+            ArticleVideo(
+                src = "https://www.youtube.com/embed/UzbpjZiBmCA",
+                caption = "Walkthrough of Cortana Actions configuration portal"
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("We ended up with two ways to create an Action: predefined or custom. A predefined Action would allow the developer to hook into existing language models, like \"Book a taxi\" or \"Order food\", and just handle the request if their app/service was clicked on in the Cortana canvas. Using the example from before, Uber would register with \"Book a taxi\", allowing them to show up as one of the options when the user asked Cortana that request.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/actions1.png",
+                        caption = "Sign up exploration"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/actions2.png",
+                        caption = "Welcome exploration"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/actions3.png",
+                        caption = "Create flow exploration"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/actions5.png",
+                        caption = "Configuration page exploration - part 1"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/actions6.png",
+                        caption = "Configuration page exploration - part 2"
+                    ),
+                ),
+                showAsCarousel = true
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/order-sandwich.png",
+                        caption = "Experience flow for a predefined action of ordering food"
+                    ),
+                ),
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("While the portal ended up being a straightforward forms experience, I had also played around with the idea of writing code to register the action, something that we thought may be more natural for our developers rather than the usual GUI. I built a simple prototype that allowed you write the code in the browser, as a configuration file with rich code-completion, giving the user in-situ help and validation tips as they typed.")
+                )
+            ),
+            ArticleVideo(
+                src = "https://www.youtube.com/embed/OwFA5YbbJ5w",
+                caption = "Building a Cortana extension purely with code"
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("We also sketched out ideas for additional Cortana development tools to help developers learn more about the platform, from web-based simulators to email/website schema testers, without needing to install anything.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/simulator.png",
+                        caption = "Mobile web simulator for testing Cortana in-context"
+                    ),
+                ),
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/cortana/schema1.png",
+                        caption = "Schema test tool for emails"
+                    ),
+                    ArticleImage(
+                        src = "/img/cortana/schema2.png",
+                        caption = "Schema test tool for websites"
+                    ),
+                ),
+                showAsCarousel = true
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("Overall, all this work was done to help our developers understand natural language processing all-up, and develop custom Cortana experiences quickly and with confidence.")
+                )
+            ),
         ),
         styleRef = HomeStylesheet.cortana
     ),
