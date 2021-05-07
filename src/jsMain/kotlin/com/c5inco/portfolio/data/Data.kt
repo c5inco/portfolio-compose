@@ -13,11 +13,322 @@ val ProjectsRepository = hashMapOf(
     "vscode" to ProjectData(
         name = "vscode",
         description = "Visual Studio Code",
+        articleData = listOf(
+            ArticleParagraph(
+                content = listOf(
+                    ArticleBold("Visual Studio Code"),
+                    ArticleSpan(" is a lightweight, cross-platform code editor for writing modern web and cloud applications that will run on OS X, Linux and Windows. The product was announced at the //build 2015 conference. After only a year, it had been installed over 2 million times, had over 500K monthly active users and became open-source. It\\'s one of the first native Microsoft developer apps to be released for OS X and Linux, and is the most popular Microsoft project on "),
+                    ArticleLink(url = "https://github.com/Microsoft/vscode", content = "GitHub"),
+                    ArticleSpan(".")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/vscode-site.png",
+                        caption = "Landing page comp for product launch",
+                        multiplier = 2
+                    )
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("The product was unique in that it combined the simplicity of a text editor with the superpowers of an full-blown integrated development environment (IDE). The result was a focused tool that we believe gives developers a streamlined workflow, that can be a core part of the tool set for building any kind of application."),
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/vscode0.png",
+                        caption = "Simple and clean debugging support"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/vscode5.png",
+                        caption = "Core Git support for quick diffs and commits"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/vscode2.png",
+                        caption = "Viewing relationships between code and files"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/vscode1.png",
+                        caption = "Refactoring included"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/vscode3.png",
+                        caption = "Intelligent code completion"
+                    )
+                ),
+                showAsCarousel = true
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("What I find the most interesting about the results is not our success but the journey we took to get there to truly understand what problems we were trying to solve."),
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("In the beginning, the problem statement we had was that Microsoft developers didn't have the ability to reliably work from anywhere. There were several solutions out there to help developers move their work across machines, but many times it required them to reinstall and reconfigure their favorite tools each time. Our solution was to provide code authoring experiences in the browser, removing the need to reinstall and reestablish context - as long as you had access to a browser, your tools, code and context followed with you."),
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("The first experience we released was a simple web control, the "),
+                    ArticleLink(url = "https://github.com/Microsoft/monaco-editor", content = "Monaco Editor"),
+                    ArticleSpan(". It was embedded in various Microsoft products as a way to work with code in a productive and consistent manner across the web."),
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/f12.png",
+                        caption = "The editor was used in the Internet Explorer Developer Tools, OneDrive, Windows Azure and more"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/onedrive.png",
+                        caption = "Editing code in OneDrive with Monaco Editor"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/zumo.png",
+                        caption = "Editing Windows Azure scripts with Monaco Editor"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/tfs.png",
+                        caption = "Editing source code in Visual Studio Team Services with Monaco Editor"
+                    ),
+                ),
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("We then evolved the experience into a lightweight, browser-based development environment called Visual Studio Online \"Monaco\" - not the best name, but our first big step to realizing our vision."),
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/vsmonaco.png",
+                        caption = "\"Monaco\", a lightweight, browser-based development environment"
+                    ),
+                ),
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("The "),
+                    ArticleLink(url = "https://techcrunch.com/2015/04/29/microsoft-shocks-the-world-with-visual-studio-code-a-free-code-editor-for-os-x-linux-and-windows/", content = "preview release"),
+                    ArticleSpan(" of \"Monaco\" in 2013 went well at first. However, over the next year we found that while the idea of coding from anywhere was exciting, the reality we observed was that most developers used it sparingly, only to make small tweaks here and there, and only during times of crises and being away from a work machine."),
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("Through research, observation and feedback, our key takeaways were:"),
+                    ArticleUnorderedList(
+                        items = listOf(
+                            ArticleParagraph(
+                                content = listOf(
+                                    ArticleSpan("Most complementary tools used in the developers' workflows were not available in the browser.")
+                                )
+                            ),
+                            ArticleParagraph(
+                                content = listOf(
+                                    ArticleSpan("Most developers ultimately didn't trust the performance and reliability of the browser - too slow, easy to lose changes, difficult to troubleshoot.")
+                                )
+                            ),
+                            ArticleParagraph(
+                                content = listOf(
+                                    ArticleSpan("Many modern development tools were becoming easier to reinstall and reconfigure across machines.")
+                                )
+                            ),
+                            ArticleParagraph(
+                                content = listOf(
+                                    ArticleSpan("Most developers (Microsoft and non-Microsoft) loved that we created a lightweight version of Visual Studio that was cross-platform and more powerful out-of-the-box than their current other tools.")
+                                )
+                            ),
+                        )
+                    )
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/research1.png",
+                        caption = "Research notes from on-site interviews with non-Microsoft developers"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/research2.png",
+                        caption = "Preferred Eclipse layout from on-site interview notes"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/research3.png",
+                        caption = "Preferred Vim layout from on-site interview notes"
+                    ),
+                ),
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/blade-sketch1.png",
+                        caption = "Brainstorming \"Monaco\" as a full-blown IDE in the browser"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/blade-sketch3.png",
+                        caption = "Workspaces concepting"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/sketch1.png",
+                        caption = "Thinking about tab models"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/blade-sketch2.png",
+                        caption = "Showing content panes as composable parts"
+                    ),
+                ),
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("This lead us to pivot our efforts towards solving a different problem: that while many developers used lightweight tools, they had to spend additional time installing features that they felt were fundamental and should just come for free. Hence, we evolved the product into "),
+                    ArticleLink(url = "http://code.visualstudio.com", content = "Visual Studio Code"),
+                    ArticleSpan(", a new kind of cross-platform development tool, one that focuses on core developer productivity."),
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("I was the Lead Designer throughout this amazing journey, delivering design artifacts from storyboards to detailed visual/interaction specs to working prototypes to front-end production code."),
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/installer-c.png",
+                        caption = "Installer loading animation"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/installer-final.gif",
+                        caption = "Animated final version"
+                    ),
+                ),
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/nav0.png",
+                        caption = "Nav explorations with horizontal Tabs"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/nav1.png",
+                        caption = "Vertical tabs"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/nav2.png",
+                        caption = "Icon + text + badges"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/nav3.png",
+                        caption = "Icon + badges"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/nav4.png",
+                        caption = "Icon + badges (emphasis with darker color)"
+                    ),
+                ),
+                showAsCarousel = true
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/distractionfree1.png",
+                        caption = "Distraction-free mode exploration"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/distractionfree2.png",
+                        caption = "Popup views while in distraction-free mode"
+                    ),
+                ),
+                showAsCarousel = true
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/quickhelp-all.png",
+                        caption = "First-launch help explorations"
+                    ),
+                ),
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/quickhelp1.png",
+                        caption = "Illustration explorations"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/quickhelp2.png",
+                        caption = "Quick open visual"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/quickhelp3.png",
+                        caption = "Auto-save visual"
+                    ),
+                ),
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/quickhelp-artboard.png",
+                        caption = "Illustrations exploration with branding color palette"
+                    ),
+                ),
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("I also became a key contributor to the research and telemetry efforts, conducting various usability studies, cognitive walkthroughs and in-person interviews with users to help to collect and synthesize valuable insights and feedback from them, ensuring we had the most reliable data possible to help drive product decisions. Even though my primary role was design, I was eager to grow into a research role as I felt I could make even more impact by interfacing more directly with our users."),
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/focus-group2.png",
+                        caption = "Affinity diagrams from a focus group of non-Microsoft developers"
+                    ),
+                    ArticleImage(
+                        src = "/img/vscode/focus-group4.png",
+                        caption = "More affinity diagrams"
+                    ),
+                ),
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("Our product team was small and globally distributed, with the engineers in Zurich, Switzerland and research in Edinburgh, Scotland. I would be lying if I said collaboration wasn't a challenge. However I felt it was my strongest and best collaboration at Microsoft. We had daily standups in both Zurich and Redmond, using OneNote to keep our work in-sync and as a standing wiki. We used designated meeting intervals (7-10am in Redmond) to ensure we could meet in a timely and purposeful manner. And for everything else, we made video recordings of conversations, design ideas and prototypes to help communicate as much context as possible. We would also fly back-and-forth throughout the year to ensure we did deep in-person collaborations and constantly improve team bonding and dynamics."),
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/recording.png",
+                        caption = "Recording a high-contrast theme demo for the remote folks"
+                    ),
+                ),
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("Along the product's journey, we also partnered with other Microsoft teams that wanted to expand the product capabilities. The challenge here was ensuring that their feature requests benefited all users and not just optimized for certain ones. Our working model became that if the feature was too verticallly specific, it should be packaged up in an extension, giving the user full control over whether they needed the additional functionality. For everything else, we would incorporate it into the product and measure its success over time through user testing and telemetry."),
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/vscode/extensions-marketplace.png",
+                        caption = "Users can find hundreds of extensions to meet their needs"
+                    ),
+                ),
+            ),
+        ),
         styleRef = HomeStylesheet.vscode
     ),
     "cortana" to ProjectData(
         name = "cortana",
         description = "Cortana Actions",
+        articleData = listOf(
+
+        ),
         styleRef = HomeStylesheet.cortana
     ),
     "slackbots" to ProjectData(
