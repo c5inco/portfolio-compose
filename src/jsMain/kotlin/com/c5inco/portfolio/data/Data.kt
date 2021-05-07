@@ -232,10 +232,106 @@ val ProjectsRepository = hashMapOf(
         ),
         styleRef = HomeStylesheet.slackbots
     ),
-    "devcanvs" to ProjectData(
-        "devcanvas",
-        "Developer Canvas",
-        HomeStylesheet.devcanvas
+    "devcanvas" to ProjectData(
+        name = "devcanvas",
+        description = "Developer Canvas",
+        articleData = listOf(
+            ArticleParagraph(
+                content = listOf(
+                    ArticleBold("Developer Canvas"),
+                    ArticleSpan(" is a web-based prototype that demonstrates the power of visualizing and organizing artifacts in the software development lifecycle, on a zoomable, pannable canvas surface. The main design concept was leveraging spatial memory and semantic zoom in the workspace, to more efficiently comprehend, navigate and recall an individual's content.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/devcanvas/devcanvas0.png",
+                        caption = "Workstreams \"clotheslines\" of contextual, manageable artifacts"
+                    )
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("From the business standpoint, the prototype was used to better understand the product opportunity for tools that brought multiple team roles together in a single dashboard experience (developers, designers, product managers, operations, sales/marketing, etc), as well as address the urgent need to modernize our current product experiences to be more modular and fit-to-purpose and opposed to monolithic.")
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("The workspace was divided into multiple canvas stacked on each other, allowing the developer to go down and up the stack depending on the task at hand. Potential tasks included:"),
+                    ArticleUnorderedList(
+                        items = listOf(
+                            ArticleParagraph(
+                               content = listOf(
+                                   ArticleSpan("Reviewing the overall health of the product in-development against triage, backlogs and social media")
+                               )
+                            ),
+                            ArticleParagraph(
+                               content = listOf(
+                                   ArticleSpan("Creating and managing working sets of files that represented high-level work such as fixing a bug or implementing a feature")
+                               )
+                            ),
+                            ArticleParagraph(
+                                content = listOf(
+                                    ArticleSpan("Authoring and deploying code straight from the browser")
+                                )
+                            ),
+                        )
+                    )
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/devcanvas/devcanvas1.png",
+                        caption = "The developer will see their social workspace at the beginning of the day"
+                    ),
+                    ArticleImage(
+                        src = "/img/devcanvas/devcanvas2.png",
+                        caption = "Writing code is more distraction free but is still easily accessed with mini-maps"
+                    ),
+                    ArticleImage(
+                        src = "/img/devcanvas/devcanvas3.png",
+                        caption = "Project files are easily accessed and hidden away to remove clutter"
+                    ),
+                    ArticleImage(
+                        src = "/img/devcanvas/devcanvas4.png",
+                        caption = "Every file shows contribution history, keeping everyone up-to-date and in-sync"
+                    )
+                ),
+                showAsCarousel = true
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("We also played around with universal search across all lifecyle artifacts, along with deep integration with communication tools like Skype. The intent here was to allow the developer to see the relationships between documents across multiple services at-a-glance and also be able to quickly jump into conversations with context.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/devcanvas/search.png",
+                        caption = "Universal search across all your artifacts - even with voice"
+                    )
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("I collaborated with a few other designers and researchers to create the prototype, building upon a large amount of envisioning work done in prior years. The code was written in HTML and CSS, along with jQuery and the "),
+                    ArticleLink(content = "Monaco Editor", url = "https://github.com/Microsoft/monaco-editor")
+                )
+            ),
+            ArticleVideo(
+                src = "https://www.youtube.com/embed/XoAKShNlois",
+                caption = "Walkthrough of Developer Canvas"
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("The prototype was well-received by folks across the organization. While its current form never became a full-blown product, many of the concepts influenced the design direction of future products, such as "),
+                    ArticleLink(content = "Visual Studio Code", url = "/projects/vscode"),
+                    ArticleSpan(" and Visual Studio Team Services.")
+                )
+            ),
+        ),
+        styleRef = HomeStylesheet.devcanvas
     ),
     "touchdev" to ProjectData(
         "touchdev",
@@ -422,4 +518,9 @@ data class ArticleImage(
     val src: String,
     val caption: String,
     val multiplier: Int = 1
+)
+
+data class ArticleVideo(
+    val src: String,
+    val caption: String
 )

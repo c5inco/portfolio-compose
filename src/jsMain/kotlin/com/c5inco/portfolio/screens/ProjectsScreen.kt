@@ -3,8 +3,7 @@ package com.c5inco.portfolio.screens
 import androidx.compose.runtime.Composable
 import androidx.compose.web.css.Style
 import androidx.compose.web.elements.*
-import com.c5inco.portfolio.components.Caption
-import com.c5inco.portfolio.components.Carousel
+import com.c5inco.portfolio.components.*
 import com.c5inco.portfolio.data.*
 import com.c5inco.portfolio.style.FoundationStylesheet
 import com.c5inco.portfolio.style.ProjectsStylesheet
@@ -20,7 +19,7 @@ val blockRowStyles = listOf(
 
 @Composable
 fun ProjectsScreen(
-    data: ProjectData = ProjectsRepository["islandwood"]!!
+    data: ProjectData = ProjectsRepository["devcanvas"]!!
 ) {
     Style(ProjectsStylesheet)
 
@@ -48,6 +47,9 @@ fun ProjectsScreen(
                                 renderImages(it.images)
                             }
                         }
+                    }
+                    if (it is ArticleVideo) {
+                        renderVideo(it)
                     }
                 }
             }
@@ -198,5 +200,29 @@ private fun renderCarousel(images: List<ArticleImage>) {
         FoundationStylesheet.medium11,
     )}) {
         Carousel(images)
+    }
+}
+
+@Composable
+private fun renderVideo(video: ArticleVideo) {
+    Div(attrs = { classes(
+        FoundationStylesheet.row,
+        FoundationStylesheet.column,
+        FoundationStylesheet.smallCentered,
+        FoundationStylesheet.small12,
+        FoundationStylesheet.medium8,
+    )}) {
+        Div(attrs = { classes(ProjectsStylesheet.videoWrapper) }) {
+            Iframe(
+                src = "${video.src}?rel=0&hd=1",
+                attrs = {
+                    width(560)
+                    height(349)
+                    frameBorder(0)
+                    allowFullscreen(true)
+                }
+            )
+        }
+        Caption(video.caption)
     }
 }
