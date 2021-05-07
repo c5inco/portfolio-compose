@@ -10,7 +10,9 @@ import com.c5inco.portfolio.styles.FoundationStylesheet
 import com.c5inco.portfolio.styles.HomeStylesheet
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    onNavigate: (String) -> Unit = {}
+) {
     Style(HomeStylesheet)
 
     Div {
@@ -25,7 +27,9 @@ fun HomeScreen() {
                 FoundationStylesheet.medium9
             )}) {
                 renderIntro()
-                renderProjects()
+                renderProjects(onSelect = {
+                    onNavigate(it)
+                })
             }
             renderFooter()
         }
@@ -94,7 +98,7 @@ private fun renderIntro() {
 }
 
 @Composable
-private fun renderProjects() {
+private fun renderProjects(onSelect: (String) -> Unit) {
     Div(attrs = {
         id("gallery")
         classes(
@@ -108,8 +112,10 @@ private fun renderProjects() {
         ProjectsRepository.forEach { (key, project) ->
             Div(attrs = { classes(FoundationStylesheet.column, HomeStylesheet.col) }) {
                 A(
-                    href = "/projects/${key}",
-                    attrs = { classes(HomeStylesheet.card) }
+                    href = "?project=${key}",
+                    attrs = {
+                        classes(HomeStylesheet.card)
+                    }
                 ) {
                     Div(attrs = { classes(HomeStylesheet.preview, project.styleRef) }) { }
                     H4(attrs = { classes(HomeStylesheet.caption) }) {
