@@ -1,8 +1,8 @@
-package com.c5inco.portfolio.style
+package com.c5inco.portfolio.styles
 
 import androidx.compose.web.css.StyleSheet
 
-object FoundationStylesheet : StyleSheet() {
+object FoundationStylesheet : StyleSheet(AppStylesheet) {
     val row = "row"
     val column = "column"
 
@@ -24,7 +24,7 @@ object FoundationStylesheet : StyleSheet() {
     val largeUp3 = "large-up-3"
 }
 
-object AnimateCssStyleSheet : StyleSheet() {
+object AnimateCssStyleSheet : StyleSheet(AppStylesheet) {
     val animated = "animated"
     val fadeInUp = "fadeInUp"
     val fadeInDown = "fadeInDown"

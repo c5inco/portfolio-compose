@@ -1,4 +1,4 @@
-package com.c5inco.portfolio.style
+package com.c5inco.portfolio.styles
 
 import androidx.compose.web.css.CSSBuilder
 import androidx.compose.web.css.CSSStyleRuleBuilder

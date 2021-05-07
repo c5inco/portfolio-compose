@@ -1,11 +1,12 @@
 package com.c5inco.portfolio.screens
 
 import androidx.compose.runtime.Composable
-import androidx.compose.web.css.Style
+import androidx.compose.web.css.*
 import androidx.compose.web.elements.*
+import com.c5inco.portfolio.components.*
 import com.c5inco.portfolio.data.*
-import com.c5inco.portfolio.style.FoundationStylesheet
-import com.c5inco.portfolio.style.ProjectsStylesheet
+import com.c5inco.portfolio.styles.FoundationStylesheet
+import com.c5inco.portfolio.styles.ProjectsStylesheet
 
 val blockRowStyles = listOf(
     FoundationStylesheet.row,
@@ -18,11 +19,11 @@ val blockRowStyles = listOf(
 
 @Composable
 fun ProjectsScreen(
-    data: ProjectData = ProjectsRepository[5]
+    data: ProjectData = ProjectsRepository["cortana"]!!
 ) {
     Style(ProjectsStylesheet)
 
-    val (name, description, _, articleData) = data
+    val (description, _, articleData) = data
 
     Div {
         Div(attrs = { classes(ProjectsStylesheet.project)} ) {
@@ -32,21 +33,32 @@ fun ProjectsScreen(
                 H2(attrs = { classes(ProjectsStylesheet.projectName)} ) {
                     Text("$description")
                 }
-
-                if (articleData.isNotEmpty()) {
-                    articleData.forEach {
-                        if (it is ArticleParagraph) {
-                            renderParagraph(it.content)
+            }
+            if (articleData.isNotEmpty()) {
+                articleData.forEach {
+                    if (it is ArticleParagraph) {
+                        if (it.content.isNotEmpty()) renderParagraph(it.content)
+                    }
+                    if (it is ArticleImages) {
+                        if (it.images.isNotEmpty()) {
+                            if (it.showAsCarousel) {
+                                renderCarousel(it.images)
+                            } else {
+                                renderImages(it.images)
+                            }
                         }
-                        if (it is ArticleImages) {
-                            if (it.images.isNotEmpty()) renderImages(it.images)
-                        }
+                    }
+                    if (it is ArticleVideo) {
+                        renderVideo(it)
+                    }
+                    if (it is ArticleIframe) {
+                        renderIframe(it)
                     }
                 }
             }
         }
-        Footer {
-            Div {
+        Footer(attrs = { classes(ProjectsStylesheet.projectNav)} ) {
+            Div(attrs = { classes(ProjectsStylesheet.navLink)} ) {
                 A(href = "/") {
                     H3 { Text("back to home") }
                 }
@@ -56,9 +68,67 @@ fun ProjectsScreen(
 }
 
 @Composable
-private fun renderParagraph(content: String) {
+fun renderIframe(it: ArticleIframe) {
     Div(attrs = { classes(*blockRowStyles.toTypedArray()) }) {
-        Text("$content")
+        Iframe(
+            src = it.src,
+            attrs = {
+                frameBorder(0)
+            },
+            style = {
+                width(100.percent)
+                height((it.height).px)
+            }
+        )
+    }
+}
+
+@Composable
+private fun renderParagraph(content: List<Any>) {
+    Div(attrs = { classes(*blockRowStyles.toTypedArray()) }) {
+        P {
+            content.forEach {
+                when (it) {
+                    is ArticleBold -> {
+                        B { Text(it.content) }
+                    }
+                    is ArticleLink -> {
+                        A(href = it.url) { Text(it.content) }
+                    }
+                    is ArticleUnorderedList -> {
+                        Ul {
+                            it.items.forEach {
+                                Li {
+                                    renderListItem(it.content)
+                                }
+                            }
+                        }
+                    }
+                    else -> {
+                        val span = it as ArticleSpan
+                        Text(it.content)
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun renderListItem(content: List<Any>) {
+    content.forEach {
+        when (it) {
+            is ArticleBold -> {
+                B { Text(it.content) }
+            }
+            is ArticleLink -> {
+                A(href = it.url) { Text(it.content) }
+            }
+            else -> {
+                val span = it as ArticleSpan
+                Text(it.content)
+            }
+        }
     }
 }
 
@@ -95,8 +165,8 @@ private fun renderImages(images: List<ArticleImage>) {
             )}) {
                 images.forEach {
                     Div(attrs = { classes(FoundationStylesheet.column) }) {
-                        renderImageElement(it)
-                        renderCaptionElement(it.caption)
+                        renderImageElement(it, ProjectsStylesheet.maskImage)
+                        Caption(it.caption)
                     }
                 }
             }
@@ -108,16 +178,20 @@ private fun renderImages(images: List<ArticleImage>) {
             FoundationStylesheet.row,
             FoundationStylesheet.column,
             FoundationStylesheet.smallCentered,
+            FoundationStylesheet.small12,
             FoundationStylesheet.medium11
         )}) {
             renderImageElement(image)
-            renderCaptionElement(image.caption)
+            Caption(image.caption)
         }
     }
 }
 
 @Composable
-private fun renderImageElement(image: ArticleImage) {
+private fun renderImageElement(
+    image: ArticleImage,
+    imageClass: String = ProjectsStylesheet.fullImage
+) {
     val (src, _, multiplier) = image
 
     if (multiplier == 2) {
@@ -126,17 +200,49 @@ private fun renderImageElement(image: ArticleImage) {
         Img(
             src = src,
             attrs = {
+                classes(imageClass)
                 attr("srcSet", "${tmp[0]}@2x.${tmp[1]} 2x")
             },
         )
     } else {
-        Img(src = src)
+        Img(
+            src = src,
+            attrs = { classes(imageClass) },
+        )
     }
 }
 
 @Composable
-private fun renderCaptionElement(caption: String) {
-    Div(attrs = { classes(ProjectsStylesheet.slideCaption) }) {
-        Text("$caption")
+private fun renderCarousel(images: List<ArticleImage>) {
+    Div(attrs = { classes(
+        FoundationStylesheet.row,
+        FoundationStylesheet.column,
+        FoundationStylesheet.smallCentered,
+        FoundationStylesheet.small12,
+        FoundationStylesheet.medium11,
+    )}) {
+        Carousel(images)
+    }
+}
+
+@Composable
+private fun renderVideo(video: ArticleVideo) {
+    Div(attrs = { classes(
+        FoundationStylesheet.row,
+        FoundationStylesheet.column,
+        FoundationStylesheet.smallCentered,
+        FoundationStylesheet.small12,
+        FoundationStylesheet.medium8,
+    )}) {
+        Div(attrs = { classes(ProjectsStylesheet.videoWrapper) }) {
+            Iframe(
+                src = "${video.src}?rel=0&hd=1",
+                attrs = {
+                    frameBorder(0)
+                    allowFullscreen(true)
+                },
+            )
+        }
+        Caption(video.caption)
     }
 }

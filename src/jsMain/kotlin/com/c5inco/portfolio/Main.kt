@@ -1,21 +1,30 @@
 package com.c5inco.portfolio
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.web.css.Style
 import androidx.compose.web.renderComposable
+import com.c5inco.portfolio.data.ProjectsRepository
 import com.c5inco.portfolio.screens.HomeScreen
 import com.c5inco.portfolio.screens.ProjectsScreen
-import com.c5inco.portfolio.style.AnimateCssStyleSheet
-import com.c5inco.portfolio.style.CommonStylesheet
-import com.c5inco.portfolio.style.FoundationStylesheet
+import com.c5inco.portfolio.styles.AppStylesheet
+import kotlinx.browser.window
+import org.w3c.dom.url.URLSearchParams
 
 fun main() {
     renderComposable(rootElementId = "root") {
-        Style(FoundationStylesheet)
-        Style(AnimateCssStyleSheet)
-        Style(CommonStylesheet)
+        Style(AppStylesheet)
 
-        HomeScreen()
-        // ProjectsScreen()
+        var params = URLSearchParams(window.location.search)
+        var project by remember { mutableStateOf(params.get("project") ?: "/") }
+
+        if (project == "/") {
+            HomeScreen()
+        } else {
+            ProjectsRepository[project]?.let { ProjectsScreen(data = it) }
+        }
     }
 }
 
