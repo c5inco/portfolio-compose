@@ -1,6 +1,8 @@
 package com.c5inco.portfolio.style
 
 import androidx.compose.web.css.*
+import androidx.compose.web.css.selectors.descendant
+import androidx.compose.web.css.selectors.selector
 
 object ProjectsStylesheet : StyleSheet() {
     fun CSSBuilder.imageStyle() {
@@ -68,7 +70,7 @@ object ProjectsStylesheet : StyleSheet() {
         property("padding-bottom", value(56.25.percent))
         height(0.px)
 
-        "iframe" style {
+        descendant(self, selector("iframe")) style {
             position(Position.Absolute)
             top(0.px)
             left(0.px)

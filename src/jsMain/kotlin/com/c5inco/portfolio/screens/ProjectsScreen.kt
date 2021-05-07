@@ -1,7 +1,7 @@
 package com.c5inco.portfolio.screens
 
 import androidx.compose.runtime.Composable
-import androidx.compose.web.css.Style
+import androidx.compose.web.css.*
 import androidx.compose.web.elements.*
 import com.c5inco.portfolio.components.*
 import com.c5inco.portfolio.data.*
@@ -19,7 +19,7 @@ val blockRowStyles = listOf(
 
 @Composable
 fun ProjectsScreen(
-    data: ProjectData = ProjectsRepository["touchdev"]!!
+    data: ProjectData = ProjectsRepository["funsies"]!!
 ) {
     Style(ProjectsStylesheet)
 
@@ -51,6 +51,9 @@ fun ProjectsScreen(
                     if (it is ArticleVideo) {
                         renderVideo(it)
                     }
+                    if (it is ArticleIframe) {
+                        renderIframe(it)
+                    }
                 }
             }
         }
@@ -61,6 +64,22 @@ fun ProjectsScreen(
                 }
             }
         }
+    }
+}
+
+@Composable
+fun renderIframe(it: ArticleIframe) {
+    Div(attrs = { classes(*blockRowStyles.toTypedArray()) }) {
+        Iframe(
+            src = it.src,
+            attrs = {
+                frameBorder(0)
+            },
+            style = {
+                width(100.percent)
+                height((it.height).px)
+            }
+        )
     }
 }
 
@@ -216,11 +235,9 @@ private fun renderVideo(video: ArticleVideo) {
             Iframe(
                 src = "${video.src}?rel=0&hd=1",
                 attrs = {
-                    width(560)
-                    height(349)
                     frameBorder(0)
                     allowFullscreen(true)
-                }
+                },
             )
         }
         Caption(video.caption)

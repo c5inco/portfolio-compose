@@ -587,6 +587,113 @@ val ProjectsRepository = hashMapOf(
     "funsies" to ProjectData(
         name = "funsies",
         description = "For Funsies",
+        articleData = listOf(
+            ArticleParagraph(
+                content = listOf(
+                    ArticleSpan("This is a collection of some things I've done on the side, either for fun, to learn, to grow or really all of the above. I always felt that it's mentally healthy to create things outside of the day-to-day work, just for the sake of curiosity and learning - I just wish I practiced what I preached more. ;)")
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleBold("Eat.Drink.SEA"),
+                    ArticleSpan(" - a fun, little website my friend and I created to quickly give newcomers and veterans of Seattle on-the-go top 10 lists of places to visit for things like coffee and local flavor.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/funsies/eatdrinksea-iphone.png",
+                        caption = "eatdrinkSEA on phone",
+                        multiplier = 2
+                    ),
+                    ArticleImage(
+                        src = "/img/funsies/eatdrinksea-ipad.png",
+                        caption = "eatdrinkSEA on tablet",
+                        multiplier = 2
+                    ),
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/funsies/eatdrinksea-illustrations.png",
+                        caption = "Explorations on illustration style",
+                        multiplier = 2
+                    ),
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleBold("Flannel Elephant"),
+                    ArticleSpan(" - an idea my friend and I had for a small side business of creating hand-crafted, well-designed websites. I created our brand out of love for the typical Pacific Northwest flannel combining with a friendly elephant. Unfortunately, we didn't pursue the business further but it was fun nonetheless to dream a bit.")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/funsies/flannelelephant-website.png",
+                        caption = "Home page explorations",
+                        multiplier = 2
+                    ),
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/funsies/flannelelephant-illustrations.png",
+                        caption = "Brand explorations",
+                        multiplier = 2
+                    ),
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleBold("Pokeball 3D Model"),
+                    ArticleSpan(" - I've always wanted to learn how to model 3D objects. I decided to start with something fun and small that I knew from memory - a Pokeball! I used Cinema 4D to build the model as I found it was easier to ramp up on than other 3D CAD programs.")
+                )
+            ),
+            ArticleIframe(
+                src = "https://sketchfab.com/models/54234da9bb094dfa93b76d640ec73878/embed",
+                height = 480
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/funsies/pokeball-c4d.png",
+                        caption = "Working the Pokeball in Cinema 4D",
+                        multiplier = 2
+                    ),
+                )
+            ),
+            ArticleParagraph(
+                content = listOf(
+                    ArticleBold("Multi-color Icon Font"),
+                    ArticleSpan(" - icon fonts are becoming commonplace on the web with the pervasiveness of high density displays. However, they are limited to a single color due to browser standards. For a hackathon, I decided to experiment with creating a multi-color icon font using the raw SVG files for each icon. The technique was inspired by the folks on "),
+                    ArticleLink(url = "http://stackicons.com/", content = "Stackicons"),
+                    ArticleSpan(". The code is available on "),
+                    ArticleLink(url = "https://github.com/csinco/multicolor-icon-font", content = "GitHub"),
+                    ArticleSpan(".")
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/funsies/multicolor-icon-breakdown.png",
+                        caption = "Breakdown of different layers of each SVG icon",
+                        multiplier = 2
+                    ),
+                )
+            ),
+            ArticleImages(
+                images = listOf(
+                    ArticleImage(
+                        src = "/img/funsies/multicolor-icon-grid.png",
+                        caption = "Collection of icons as a multicolor icon font",
+                        multiplier = 2
+                    ),
+                )
+            ),
+        ),
         styleRef = HomeStylesheet.funsies
     ),
 )
@@ -626,4 +733,9 @@ data class ArticleImage(
 data class ArticleVideo(
     val src: String,
     val caption: String
+)
+
+data class ArticleIframe(
+    val src: String,
+    val height: Int
 )
