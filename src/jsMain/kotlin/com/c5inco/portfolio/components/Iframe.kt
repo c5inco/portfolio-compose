@@ -21,12 +21,6 @@ fun AttrsBuilder<NewTag.Iframe>.name(value: String) =
 fun AttrsBuilder<NewTag.Iframe>.allowFullscreen(value: Boolean) =
     attr("allowFullscreen", value.toString())
 
-fun AttrsBuilder<NewTag.Iframe>.width(value: Int) =
-    attr("width", value.toString())
-
-fun AttrsBuilder<NewTag.Iframe>.height(value: Int) =
-    attr("height", value.toString())
-
 fun AttrsBuilder<NewTag.Iframe>.frameBorder(value: Int) =
     attr("frameBorder", value.toString())
 
