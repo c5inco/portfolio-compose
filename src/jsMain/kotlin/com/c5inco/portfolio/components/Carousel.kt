@@ -11,8 +11,8 @@ import androidx.compose.web.elements.Button
 import androidx.compose.web.elements.Div
 import androidx.compose.web.elements.Img
 import com.c5inco.portfolio.data.ArticleImage
-import com.c5inco.portfolio.style.AppStylesheet
-import com.c5inco.portfolio.style.ProjectsStylesheet.imageStyle
+import com.c5inco.portfolio.styles.AppStylesheet
+import com.c5inco.portfolio.styles.ProjectsStylesheet.imageStyle
 import kotlinx.browser.window
 
 @Composable

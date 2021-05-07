@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.web.css.*
 import androidx.compose.web.elements.Div
 import androidx.compose.web.elements.Text
-import com.c5inco.portfolio.style.AppStylesheet
+import com.c5inco.portfolio.styles.AppStylesheet
 
 @Composable
 fun Caption(caption: String) {

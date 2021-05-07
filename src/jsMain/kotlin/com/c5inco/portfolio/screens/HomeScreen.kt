@@ -4,11 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.web.css.Style
 import androidx.compose.web.css.value
 import androidx.compose.web.elements.*
-import com.c5inco.portfolio.data.ProjectData
 import com.c5inco.portfolio.data.ProjectsRepository
-import com.c5inco.portfolio.style.AnimateCssStyleSheet
-import com.c5inco.portfolio.style.FoundationStylesheet
-import com.c5inco.portfolio.style.HomeStylesheet
+import com.c5inco.portfolio.styles.AnimateCssStyleSheet
+import com.c5inco.portfolio.styles.FoundationStylesheet
+import com.c5inco.portfolio.styles.HomeStylesheet
 
 @Composable
 fun HomeScreen() {

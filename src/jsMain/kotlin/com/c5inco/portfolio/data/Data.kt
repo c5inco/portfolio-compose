@@ -1,6 +1,6 @@
 package com.c5inco.portfolio.data
 
-import com.c5inco.portfolio.style.HomeStylesheet
+import com.c5inco.portfolio.styles.HomeStylesheet
 
 data class ProjectData(
     val name: String,

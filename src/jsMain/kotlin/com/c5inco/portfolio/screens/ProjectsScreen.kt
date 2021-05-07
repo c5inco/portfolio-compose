@@ -5,8 +5,8 @@ import androidx.compose.web.css.*
 import androidx.compose.web.elements.*
 import com.c5inco.portfolio.components.*
 import com.c5inco.portfolio.data.*
-import com.c5inco.portfolio.style.FoundationStylesheet
-import com.c5inco.portfolio.style.ProjectsStylesheet
+import com.c5inco.portfolio.styles.FoundationStylesheet
+import com.c5inco.portfolio.styles.ProjectsStylesheet
 
 val blockRowStyles = listOf(
     FoundationStylesheet.row,
@@ -57,8 +57,8 @@ fun ProjectsScreen(
                 }
             }
         }
-        Footer {
-            Div {
+        Footer(attrs = { classes(ProjectsStylesheet.projectNav)} ) {
+            Div(attrs = { classes(ProjectsStylesheet.navLink)} ) {
                 A(href = "/") {
                     H3 { Text("back to home") }
                 }

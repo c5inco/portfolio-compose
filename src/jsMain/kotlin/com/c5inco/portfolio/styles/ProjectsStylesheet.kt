@@ -1,4 +1,4 @@
-package com.c5inco.portfolio.style
+package com.c5inco.portfolio.styles
 
 import androidx.compose.web.css.*
 import androidx.compose.web.css.selectors.descendant
@@ -57,7 +57,7 @@ object ProjectsStylesheet : StyleSheet() {
     }
 
     val projectNav by style {
-        property("margin", value("4rem 0"))
+        property("padding", value("3rem 0"))
     }
 
     val navLink by style {
