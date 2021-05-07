@@ -1,8 +1,10 @@
 package com.c5inco.portfolio.styles
 
 import androidx.compose.web.css.*
+import androidx.compose.web.css.selectors.descendant
 import androidx.compose.web.css.selectors.hover
 import androidx.compose.web.css.selectors.plus
+import androidx.compose.web.css.selectors.selector
 
 object HomeStylesheet : StyleSheet() {
     val main by style {
@@ -11,7 +13,7 @@ object HomeStylesheet : StyleSheet() {
         property("overflow", value("hidden"))
         height(225.px)
 
-        "img" style {
+        descendant(self, selector("img")) style {
             display(DisplayStyle.Block)
             property("margin", value("auto"))
         }
@@ -79,7 +81,7 @@ object HomeStylesheet : StyleSheet() {
 
         property("animation-duration", value(".5s"))
 
-        "p" style {
+        descendant(self, selector("p")) style {
             fontSize(1.rem)
         }
     }
@@ -204,7 +206,7 @@ object HomeStylesheet : StyleSheet() {
         property("padding", value("3rem 0"))
         property("text-align", value("center"))
 
-        "a" style {
+        descendant(self, selector("a")) style {
             color(Color("#fff"))
 
             self + hover() style {

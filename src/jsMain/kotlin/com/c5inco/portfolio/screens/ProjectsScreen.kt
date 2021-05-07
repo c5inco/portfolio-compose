@@ -23,7 +23,7 @@ fun ProjectsScreen(
 ) {
     Style(ProjectsStylesheet)
 
-    val (name, description, _, articleData) = data
+    val (description, _, articleData) = data
 
     Div {
         Div(attrs = { classes(ProjectsStylesheet.project)} ) {

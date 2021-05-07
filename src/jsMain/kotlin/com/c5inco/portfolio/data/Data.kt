@@ -3,7 +3,6 @@ package com.c5inco.portfolio.data
 import com.c5inco.portfolio.styles.HomeStylesheet
 
 data class ProjectData(
-    val name: String,
     val description: String,
     val styleRef: String,
     val articleData: List<Any> = listOf()
@@ -11,7 +10,6 @@ data class ProjectData(
 
 val ProjectsRepository = hashMapOf(
     "vscode" to ProjectData(
-        name = "vscode",
         description = "Visual Studio Code",
         articleData = listOf(
             ArticleParagraph(
@@ -324,7 +322,6 @@ val ProjectsRepository = hashMapOf(
         styleRef = HomeStylesheet.vscode
     ),
     "cortana" to ProjectData(
-        name = "cortana",
         description = "Cortana Actions",
         articleData = listOf(
             ArticleParagraph(
@@ -573,7 +570,6 @@ val ProjectsRepository = hashMapOf(
         styleRef = HomeStylesheet.cortana
     ),
     "slackbots" to ProjectData(
-        name = "slackbots",
         description = "Slack Bots",
         articleData = listOf(
             ArticleParagraph(
@@ -785,7 +781,6 @@ val ProjectsRepository = hashMapOf(
         styleRef = HomeStylesheet.slackbots
     ),
     "devcanvas" to ProjectData(
-        name = "devcanvas",
         description = "Developer Canvas",
         articleData = listOf(
             ArticleParagraph(
@@ -886,7 +881,6 @@ val ProjectsRepository = hashMapOf(
         styleRef = HomeStylesheet.devcanvas
     ),
     "touchdev" to ProjectData(
-        name = "touchdev",
         description = "Touch-First Dev Tools",
         articleData = listOf(
             ArticleParagraph(
@@ -994,7 +988,6 @@ val ProjectsRepository = hashMapOf(
         styleRef = HomeStylesheet.touchdev
     ),
     "magicalmusic" to ProjectData(
-        name = "magicalmusic",
         description = "Magical Music",
         articleData = listOf(
             ArticleParagraph(
@@ -1038,7 +1031,6 @@ val ProjectsRepository = hashMapOf(
         styleRef = HomeStylesheet.magicalMusic
     ),
     "hololens" to ProjectData(
-        name = "hololens",
         description = "Microsoft Hololens",
         articleData = listOf(
             ArticleParagraph(
@@ -1064,7 +1056,6 @@ val ProjectsRepository = hashMapOf(
         styleRef = HomeStylesheet.hololens
     ),
     "islandwood" to ProjectData(
-        name = "islandwood",
         description = "Windows Bridge for iOS",
         articleData = listOf(
             ArticleParagraph(
@@ -1137,7 +1128,6 @@ val ProjectsRepository = hashMapOf(
         styleRef = HomeStylesheet.islandwood
     ),
     "funsies" to ProjectData(
-        name = "funsies",
         description = "For Funsies",
         articleData = listOf(
             ArticleParagraph(
