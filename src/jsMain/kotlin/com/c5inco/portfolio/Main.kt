@@ -1,9 +1,5 @@
 package com.c5inco.portfolio
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.web.css.Style
 import androidx.compose.web.renderComposable
 import com.c5inco.portfolio.data.ProjectsRepository
@@ -18,7 +14,7 @@ fun main() {
         Style(AppStylesheet)
 
         var params = URLSearchParams(window.location.search)
-        var project by remember { mutableStateOf(params.get("project") ?: "/") }
+        var project = params.get("project") ?: "/"
 
         if (project == "/") {
             HomeScreen()
