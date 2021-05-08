@@ -2,6 +2,48 @@ package com.c5inco.portfolio.data
 
 import com.c5inco.portfolio.styles.HomeStylesheet
 
+data class ArticleParagraph(
+    val content: List<Any>,
+)
+
+data class ArticleSpan(
+    val content: String,
+)
+
+data class ArticleBold(
+    val content: String,
+)
+
+data class ArticleLink(
+    val content: String,
+    val url: String,
+)
+
+data class ArticleUnorderedList(
+    val items: List<ArticleParagraph>,
+)
+
+data class ArticleImages(
+    val images: List<ArticleImage>,
+    val showAsCarousel: Boolean = false
+)
+
+data class ArticleImage(
+    val src: String,
+    val caption: String,
+    val multiplier: Int = 1
+)
+
+data class ArticleVideo(
+    val src: String,
+    val caption: String
+)
+
+data class ArticleIframe(
+    val src: String,
+    val height: Int
+)
+
 data class ProjectData(
     val description: String,
     val styleRef: String,
@@ -1238,46 +1280,4 @@ val ProjectsRepository = hashMapOf(
         ),
         styleRef = HomeStylesheet.funsies
     ),
-)
-
-data class ArticleParagraph(
-    val content: List<Any>,
-)
-
-data class ArticleSpan(
-    val content: String,
-)
-
-data class ArticleBold(
-    val content: String,
-)
-
-data class ArticleLink(
-    val content: String,
-    val url: String,
-)
-
-data class ArticleUnorderedList(
-    val items: List<ArticleParagraph>,
-)
-
-data class ArticleImages(
-    val images: List<ArticleImage>,
-    val showAsCarousel: Boolean = false
-)
-
-data class ArticleImage(
-    val src: String,
-    val caption: String,
-    val multiplier: Int = 1
-)
-
-data class ArticleVideo(
-    val src: String,
-    val caption: String
-)
-
-data class ArticleIframe(
-    val src: String,
-    val height: Int
 )
