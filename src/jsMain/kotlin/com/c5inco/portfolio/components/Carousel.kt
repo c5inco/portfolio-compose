@@ -4,8 +4,9 @@ import androidx.compose.runtime.*
 import androidx.compose.web.attributes.alt
 import androidx.compose.web.attributes.disabled
 import androidx.compose.web.css.*
-import androidx.compose.web.css.selectors.CSSSelector
+import androidx.compose.web.css.selectors.CSSSelector.PseudoClass
 import androidx.compose.web.css.selectors.hover
+import androidx.compose.web.css.selectors.not
 import androidx.compose.web.css.selectors.plus
 import androidx.compose.web.elements.Button
 import androidx.compose.web.elements.Div
@@ -132,11 +133,11 @@ object CarouselStyles : StyleSheet(AppStylesheet) {
         property("background-size", value(24.px))
         property("transition", value("background-color 150ms ease 0s"))
 
-        self + CSSSelector.PseudoClass.disabled style {
+        self + PseudoClass.disabled style {
             opacity(0.3f)
         }
 
-        self + androidx.compose.web.css.selectors.not(CSSSelector.PseudoClass.disabled) style {
+        self + not(PseudoClass.disabled) style {
             self + hover() style {
                 backgroundColor(Color.RGBA(0, 0, 0, 0.1))
             }
