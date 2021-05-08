@@ -14,26 +14,20 @@ import androidx.compose.web.elements.Img
 import com.c5inco.portfolio.data.ArticleImage
 import com.c5inco.portfolio.styles.AppStylesheet
 import com.c5inco.portfolio.styles.ProjectsStylesheet.imageStyle
-import kotlinx.browser.window
 
 @Composable
 fun Carousel(
+    containerWidth: Int,
     images: List<ArticleImage>
 ) {
-    var width by remember { mutableStateOf(0) }
     var columnWidth by remember { mutableStateOf(0) }
     var activeSlide by remember { mutableStateOf(0) }
     var transitioning by remember { mutableStateOf(false) }
 
     var breakpoint = 768
 
-    window.onresize = {
-        width = window.innerWidth
-        Unit
-    }
-
     Div(attrs = { classes(CarouselStyles.carousel) }) {
-        DomSideEffect(width) {
+        DomSideEffect(containerWidth) {
             columnWidth = it.getClientRects()[0].width.toInt()
         }
 

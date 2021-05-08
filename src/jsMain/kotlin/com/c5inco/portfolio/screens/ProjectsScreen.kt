@@ -1,12 +1,13 @@
 package com.c5inco.portfolio.screens
 
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.web.css.*
 import androidx.compose.web.elements.*
 import com.c5inco.portfolio.components.*
 import com.c5inco.portfolio.data.*
 import com.c5inco.portfolio.styles.FoundationStylesheet
 import com.c5inco.portfolio.styles.ProjectsStylesheet
+import kotlinx.browser.window
 
 val blockRowStyles = listOf(
     FoundationStylesheet.row,
@@ -24,6 +25,12 @@ fun ProjectsScreen(
     Style(ProjectsStylesheet)
 
     val (description, _, articleData) = data
+    var windowWidth by remember { mutableStateOf(0) }
+
+    window.onresize = {
+        windowWidth = window.innerWidth
+        Unit
+    }
 
     Div {
         Div(attrs = { classes(ProjectsStylesheet.project)} ) {
@@ -42,7 +49,7 @@ fun ProjectsScreen(
                     if (it is ArticleImages) {
                         if (it.images.isNotEmpty()) {
                             if (it.showAsCarousel) {
-                                renderCarousel(it.images)
+                                renderCarousel(windowWidth, it.images)
                             } else {
                                 renderImages(it.images)
                             }
@@ -213,7 +220,7 @@ private fun renderImageElement(
 }
 
 @Composable
-private fun renderCarousel(images: List<ArticleImage>) {
+private fun renderCarousel(containerWidth: Int, images: List<ArticleImage>) {
     Div(attrs = { classes(
         FoundationStylesheet.row,
         FoundationStylesheet.column,
@@ -221,7 +228,7 @@ private fun renderCarousel(images: List<ArticleImage>) {
         FoundationStylesheet.small12,
         FoundationStylesheet.medium11,
     )}) {
-        Carousel(images)
+        Carousel(containerWidth, images)
     }
 }
 
