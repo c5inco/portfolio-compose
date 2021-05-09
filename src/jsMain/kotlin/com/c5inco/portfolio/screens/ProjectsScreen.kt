@@ -7,6 +7,7 @@ import com.c5inco.portfolio.components.*
 import com.c5inco.portfolio.data.*
 import com.c5inco.portfolio.styles.FoundationStylesheet
 import com.c5inco.portfolio.styles.ProjectsStylesheet
+import kotlinx.browser.document
 import kotlinx.browser.window
 
 val blockRowStyles = listOf(
@@ -31,6 +32,8 @@ fun ProjectsScreen(
         windowWidth = window.innerWidth
         Unit
     }
+
+    document.title = "c5inco // Projects / $description"
 
     Div {
         Div(attrs = { classes(ProjectsStylesheet.project)} ) {
