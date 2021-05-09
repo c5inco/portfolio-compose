@@ -47,7 +47,7 @@ object ProjectsStylesheet : StyleSheet() {
         media(minWidth(40.em)) {
             self style {
                 property("padding", value("2rem 0 .5rem"))
-                property("text-align", value("center"))
+                textAlignUtil(TextAlign.Center)
             }
         }
     }
@@ -61,13 +61,13 @@ object ProjectsStylesheet : StyleSheet() {
     }
 
     val navLink by style {
-        property("text-align", value("center"))
+        textAlignUtil(TextAlign.Center)
         fontSize(2.rem)
     }
 
     val videoWrapper by style {
         position(Position.Relative)
-        property("padding-bottom", value(56.25.percent))
+        paddingBottomUtil(56.25.percent)
         height(0.px)
 
         descendant(self, selector("iframe")) style {

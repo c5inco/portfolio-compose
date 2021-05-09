@@ -10,7 +10,7 @@ object HomeStylesheet : StyleSheet() {
     val main by style {
         backgroundColor(Color("#c6dfe7"))
         position(Position.Relative)
-        property("overflow", value("hidden"))
+        overflowUtil(OverflowStyle.Hidden)
         height(225.px)
 
         descendant(self, selector("img")) style {
@@ -32,16 +32,16 @@ object HomeStylesheet : StyleSheet() {
         property("min-width", value(12.rem))
         position(Position.Relative)
         property("z-index", value(1))
-        property("text-align", value("center"))
+        textAlignUtil(TextAlign.Center)
 
-        property("animation-duration", value("1.2s"))
+        animationDurationUtil(1.2.s)
     }
 
     val name by style {
         fontSize(2.5.rem)
         property("line-height", value("normal"))
         color(Color("#2682a1"))
-        property("margin-bottom", value(0))
+        marginBottomUtil(0.px)
 
         media(minWidth(40.em)) {
             self style {
@@ -75,11 +75,11 @@ object HomeStylesheet : StyleSheet() {
 
     val info by style {
         position(Position.Relative)
-        property("text-align", value("center"))
-        property("padding-top", value(2.rem))
-        property("margin-bottom", value(2.rem))
+        textAlignUtil(TextAlign.Center)
+        paddingTopUtil(2.rem)
+        marginBottomUtil(2.rem)
 
-        property("animation-duration", value(".5s"))
+        animationDurationUtil(0.5.s)
 
         descendant(self, selector("p")) style {
             fontSize(1.rem)
@@ -104,7 +104,7 @@ object HomeStylesheet : StyleSheet() {
     }
 
     val work by style {
-        property("padding-bottom", value(5.rem))
+        paddingBottomUtil(5.rem)
     }
 
     val col by style {
@@ -179,7 +179,7 @@ object HomeStylesheet : StyleSheet() {
 
     val preview by style {
         property("background-size", value("cover"))
-        property("overflow", value("hidden"))
+        overflowUtil(OverflowStyle.Hidden)
         height(300.px)
         width(100.percent)
 
@@ -193,10 +193,10 @@ object HomeStylesheet : StyleSheet() {
     val caption by style {
         fontSize(1.1.rem)
         property("font-weight", value(600))
-        property("text-align", value("center"))
+        textAlignUtil(TextAlign.Center)
         property("border-top", value("1px solid rgba(0,0,0,.1)"))
         padding(0.6.rem)
-        property("margin-bottom", value(0))
+        marginBottomUtil(0.px)
     }
 
     val contact by style {
@@ -204,7 +204,7 @@ object HomeStylesheet : StyleSheet() {
         color(Color("#fff"))
         fontSize(1.5.rem)
         property("padding", value("3rem 0"))
-        property("text-align", value("center"))
+        textAlignUtil(TextAlign.Center)
 
         descendant(self, selector("a")) style {
             color(Color("#fff"))
@@ -222,10 +222,10 @@ object HomeStylesheet : StyleSheet() {
 
     val block by style {
         display(DisplayStyle.InlineBlock)
-        property("margin-right", value(1.rem))
-        property("margin-bottom", value(2.rem))
+        marginRightUtil(1.rem)
+        marginBottomUtil(2.rem)
         property("background-size", value("4rem"))
-        property("padding-left", value(3.5.rem))
+        paddingLeftUtil(3.5.rem)
     }
 
     val trademark by style {
