@@ -1,14 +1,16 @@
 package com.c5inco.portfolio.screens
 
 import androidx.compose.runtime.*
-import androidx.compose.web.css.*
-import androidx.compose.web.elements.*
-import com.c5inco.portfolio.components.*
+import com.c5inco.portfolio.components.AppCaption
+import com.c5inco.portfolio.components.AppIframe
+import com.c5inco.portfolio.components.Carousel
 import com.c5inco.portfolio.data.*
 import com.c5inco.portfolio.styles.FoundationStylesheet
 import com.c5inco.portfolio.styles.ProjectsStylesheet
 import kotlinx.browser.document
 import kotlinx.browser.window
+import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.dom.*
 
 val blockRowStyles = listOf(
     FoundationStylesheet.row,
@@ -30,7 +32,7 @@ fun ProjectsScreen(
 
     window.onresize = {
         windowWidth = window.innerWidth
-        Unit
+        windowWidth
     }
 
     document.title = "c5inco // Projects / $description"
@@ -41,7 +43,7 @@ fun ProjectsScreen(
                 *blockRowStyles.toTypedArray()
             )}) {
                 H2(attrs = { classes(ProjectsStylesheet.projectName)} ) {
-                    Text("$description")
+                    Text(description)
                 }
             }
             if (articleData.isNotEmpty()) {
@@ -80,15 +82,15 @@ fun ProjectsScreen(
 @Composable
 fun renderIframe(it: ArticleIframe) {
     Div(attrs = { classes(*blockRowStyles.toTypedArray()) }) {
-        Iframe(
+        AppIframe(
             src = it.src,
+            frameBorder = 0,
             attrs = {
-                frameBorder(0)
+                style {
+                    width(100.percent)
+                    height((it.height).px)
+                }
             },
-            style = {
-                width(100.percent)
-                height((it.height).px)
-            }
         )
     }
 }
@@ -115,8 +117,7 @@ private fun renderParagraph(content: List<Any>) {
                         }
                     }
                     else -> {
-                        val span = it as ArticleSpan
-                        Text(it.content)
+                        Text((it as ArticleSpan).content)
                     }
                 }
             }
@@ -135,8 +136,7 @@ private fun renderListItem(content: List<Any>) {
                 A(href = it.url) { Text(it.content) }
             }
             else -> {
-                val span = it as ArticleSpan
-                Text(it.content)
+                Text((it as ArticleSpan).content)
             }
         }
     }
@@ -176,7 +176,7 @@ private fun renderImages(images: List<ArticleImage>) {
                 images.forEach {
                     Div(attrs = { classes(FoundationStylesheet.column) }) {
                         renderImageElement(it, ProjectsStylesheet.maskImage)
-                        Caption(it.caption)
+                        AppCaption(it.caption)
                     }
                 }
             }
@@ -192,7 +192,7 @@ private fun renderImages(images: List<ArticleImage>) {
             FoundationStylesheet.medium11
         )}) {
             renderImageElement(image)
-            Caption(image.caption)
+            AppCaption(image.caption)
         }
     }
 }
@@ -245,14 +245,12 @@ private fun renderVideo(video: ArticleVideo) {
         FoundationStylesheet.medium8,
     )}) {
         Div(attrs = { classes(ProjectsStylesheet.videoWrapper) }) {
-            Iframe(
+            AppIframe(
                 src = "${video.src}?rel=0&hd=1",
-                attrs = {
-                    frameBorder(0)
-                    allowFullscreen(true)
-                },
+                frameBorder = 0,
+                allowFullscreen = true
             )
         }
-        Caption(video.caption)
+        AppCaption(video.caption)
     }
 }

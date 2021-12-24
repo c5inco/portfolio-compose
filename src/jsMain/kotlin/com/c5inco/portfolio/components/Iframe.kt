@@ -1,41 +1,38 @@
 package com.c5inco.portfolio.components
 
 import androidx.compose.runtime.Composable
-import androidx.compose.web.attributes.AttrsBuilder
-import androidx.compose.web.attributes.Tag
-import androidx.compose.web.css.StyleBuilder
-import androidx.compose.web.elements.ElementScope
-import androidx.compose.web.elements.TagElement
+import kotlinx.browser.document
+import org.jetbrains.compose.web.dom.AttrBuilderContext
+import org.jetbrains.compose.web.dom.ContentBuilder
+import org.jetbrains.compose.web.dom.ElementBuilder
+import org.jetbrains.compose.web.dom.TagElement
+import org.w3c.dom.Element
 import org.w3c.dom.HTMLIFrameElement
 
-open class NewTag {
-    object Iframe: Tag()
+private open class ElementBuilderImplementation<TElement : Element>(private val tagName: String) : ElementBuilder<TElement> {
+    private val el: Element by lazy { document.createElement(tagName) }
+    override fun create(): TElement = el.cloneNode() as TElement
 }
-
-fun AttrsBuilder<NewTag.Iframe>.src(value: String) =
-    attr("src", value)
-
-fun AttrsBuilder<NewTag.Iframe>.name(value: String) =
-    attr("name", value)
-
-fun AttrsBuilder<NewTag.Iframe>.allowFullscreen(value: Boolean) =
-    attr("allowFullscreen", value.toString())
-
-fun AttrsBuilder<NewTag.Iframe>.frameBorder(value: Int) =
-    attr("frameBorder", value.toString())
+private val Iframe: ElementBuilder<HTMLIFrameElement> = ElementBuilderImplementation("iframe")
 
 @Composable
-inline fun Iframe(
+fun AppIframe(
     src: String,
-    crossinline attrs: (AttrsBuilder<NewTag.Iframe>.() -> Unit) = {},
-    crossinline style: (StyleBuilder.() -> Unit) = {},
-    content: @Composable ElementScope<HTMLIFrameElement>.() -> Unit = {}
-) = TagElement<NewTag.Iframe, HTMLIFrameElement>(
-    tagName = "iframe",
-    applyAttrs = {
-        src(src)
-        attrs()
-    },
-    applyStyle = style,
-    content = content
-)
+    frameBorder: Number,
+    allowFullscreen: Boolean = false,
+    attrs: AttrBuilderContext<HTMLIFrameElement>? = null,
+    content: ContentBuilder<HTMLIFrameElement>? = null
+) {
+    TagElement(
+        elementBuilder = Iframe,
+        applyAttrs = {
+            attr(attr = "src", value = src)
+            attr(attr = "frameBorder", value = frameBorder.toString())
+            if (allowFullscreen) attr(attr = "allow", value = "fullscreen")
+            if (attrs != null) {
+                attrs()
+            }
+        },
+        content = content
+    )
+}
