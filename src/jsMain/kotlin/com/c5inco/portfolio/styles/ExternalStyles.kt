@@ -1,6 +1,6 @@
 package com.c5inco.portfolio.styles
 
-import androidx.compose.web.css.StyleSheet
+import org.jetbrains.compose.web.css.StyleSheet
 
 object FoundationStylesheet : StyleSheet(AppStylesheet) {
     val row = "row"

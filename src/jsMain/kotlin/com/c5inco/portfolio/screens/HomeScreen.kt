@@ -1,13 +1,13 @@
 package com.c5inco.portfolio.screens
 
 import androidx.compose.runtime.Composable
-import androidx.compose.web.css.Style
-import androidx.compose.web.css.value
-import androidx.compose.web.elements.*
 import com.c5inco.portfolio.data.ProjectsRepository
 import com.c5inco.portfolio.styles.AnimateCssStyleSheet
 import com.c5inco.portfolio.styles.FoundationStylesheet
 import com.c5inco.portfolio.styles.HomeStylesheet
+import org.jetbrains.compose.web.css.Style
+import org.jetbrains.compose.web.css.fontWeight
+import org.jetbrains.compose.web.dom.*
 
 @Composable
 fun HomeScreen() {
@@ -46,7 +46,7 @@ private fun renderHeader() {
                 Text("Chris Sinco")
             }
             H2(attrs = { classes(HomeStylesheet.title) }) {
-                Text("Experience Designer".toUpperCase())
+                Text("Experience Designer".uppercase())
             }
         }
         Div(attrs = {
@@ -76,7 +76,7 @@ private fun renderIntro() {
             )
         }) {
             Div(attrs = { classes(HomeStylesheet.avatar) }) { }
-            H2(style = { property("font-weight", value("bold")) }) {
+            H2({ style { fontWeight("bold") }}) {
                 Text("aloha.")
             }
             P {

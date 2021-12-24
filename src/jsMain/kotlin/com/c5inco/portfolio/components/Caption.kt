@@ -1,32 +1,32 @@
 package com.c5inco.portfolio.components
 
 import androidx.compose.runtime.Composable
-import androidx.compose.web.css.*
-import androidx.compose.web.elements.Div
-import androidx.compose.web.elements.Text
 import com.c5inco.portfolio.styles.AppStylesheet
+import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Text
 
 @Composable
-fun Caption(caption: String) {
+fun AppCaption(caption: String) {
     Div(
-        attrs = { classes(CaptionsStyles.caption) }) {
-        Text("$caption")
+        attrs = { classes(AppCaptionsStyles.caption) }) {
+        Text(caption)
     }
 }
 
-object CaptionsStyles: StyleSheet(AppStylesheet) {
+object AppCaptionsStyles: StyleSheet(AppStylesheet) {
     val caption by style {
-        marginTop(0.5.rem)
-        property("padding", value("0.5rem 1rem"))
-        fontSize(0.7.rem)
+        marginTop(0.5.cssRem)
+        property("padding", "0.5rem 1rem")
+        fontSize(0.7.cssRem)
         opacity(0.7f)
-        property("text-align", value("center"))
+        textAlign("center")
 
-        media(minWidth(40.em)) {
+        media(mediaMinWidth(40.em)) {
             self style {
-                fontSize(0.9.rem)
-                property("max-width", value(80.percent))
-                property("margin", value("0.5rem auto 0"))
+                fontSize(0.9.cssRem)
+                maxWidth(80.percent)
+                property("margin", "0.5rem auto 0")
             }
         }
     }

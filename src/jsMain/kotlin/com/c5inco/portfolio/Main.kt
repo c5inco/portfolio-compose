@@ -1,20 +1,20 @@
 package com.c5inco.portfolio
 
-import androidx.compose.web.css.Style
-import androidx.compose.web.renderComposable
 import com.c5inco.portfolio.data.ProjectsRepository
 import com.c5inco.portfolio.screens.HomeScreen
 import com.c5inco.portfolio.screens.ProjectsScreen
 import com.c5inco.portfolio.styles.AppStylesheet
 import kotlinx.browser.window
+import org.jetbrains.compose.web.css.Style
+import org.jetbrains.compose.web.renderComposable
 import org.w3c.dom.url.URLSearchParams
 
 fun main() {
     renderComposable(rootElementId = "root") {
         Style(AppStylesheet)
 
-        var params = URLSearchParams(window.location.search)
-        var project = params.get("project") ?: "/"
+        val params = URLSearchParams(window.location.search)
+        val project = params.get("project") ?: "/"
 
         if (project == "/") {
             HomeScreen()
