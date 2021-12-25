@@ -1,9 +1,7 @@
 package com.c5inco.portfolio.screens
 
 import androidx.compose.runtime.*
-import com.c5inco.portfolio.components.AppCaption
-import com.c5inco.portfolio.components.AppIframe
-import com.c5inco.portfolio.components.Carousel
+import com.c5inco.portfolio.components.*
 import com.c5inco.portfolio.data.*
 import com.c5inco.portfolio.styles.FoundationStylesheet
 import com.c5inco.portfolio.styles.ProjectsStylesheet
@@ -82,10 +80,10 @@ fun ProjectsScreen(
 @Composable
 fun renderIframe(it: ArticleIframe) {
     Div(attrs = { classes(*blockRowStyles.toTypedArray()) }) {
-        AppIframe(
-            src = it.src,
-            frameBorder = 0,
+        Iframe(
             attrs = {
+                src(it.src)
+                frameBorder(0)
                 style {
                     width(100.percent)
                     height((it.height).px)
@@ -97,7 +95,9 @@ fun renderIframe(it: ArticleIframe) {
 
 @Composable
 private fun renderParagraph(content: List<Any>) {
-    Div(attrs = { classes(*blockRowStyles.toTypedArray()) }) {
+    Div(attrs = {
+        classes(*blockRowStyles.toTypedArray())
+    }) {
         P {
             content.forEach {
                 when (it) {
@@ -245,10 +245,12 @@ private fun renderVideo(video: ArticleVideo) {
         FoundationStylesheet.medium8,
     )}) {
         Div(attrs = { classes(ProjectsStylesheet.videoWrapper) }) {
-            AppIframe(
-                src = "${video.src}?rel=0&hd=1",
-                frameBorder = 0,
-                allowFullscreen = true
+            Iframe(
+                {
+                    src("${video.src}?rel=0&hd=1")
+                    frameBorder(0)
+                    allowFullscreen(true)
+                }
             )
         }
         AppCaption(video.caption)
